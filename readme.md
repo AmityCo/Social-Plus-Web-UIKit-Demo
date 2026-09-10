@@ -54,6 +54,25 @@ To run Storybook and view the UI components in isolation, follow these steps:
 
 6. Open your browser and navigate to `http://localhost:6006` to view the Storybook interface.
 
+## Running the sample app (live-linked to the source)
+
+If you want to develop against a real embedded app instead of Storybook, run the bundled sample app.
+It imports the UIKit straight from `src/`, so every change to a component or CSS module hot-reloads
+in the browser without a build step.
+
+1. Install dependencies and create a `.env` at the repo root (same variables as Storybook, see
+   `.env.example`).
+
+2. Start the app:
+
+   ```
+   pnpm dev
+   ```
+
+3. Open `http://localhost:5173`, enter a user ID and API key on the setup screen, and launch.
+
+See [sample-app/README.md](./sample-app/README.md) for configuration details.
+
 ## Installation
 
 To install the Amity UI-Kit together with another project, follow these steps:

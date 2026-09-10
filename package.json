@@ -26,6 +26,9 @@
   "description": "React Ui-Kit for Amity Social Cloud",
   "scripts": {
     "prepare": "husky install",
+    "dev": "vite --config sample-app/vite.config.ts",
+    "dev:build": "vite build --config sample-app/vite.config.ts",
+    "dev:preview": "vite preview --config sample-app/vite.config.ts",
     "build": "tsup --minify",
     "build:dev": "tsup --sourcemap --metafile",
     "build:prod:analyze": "pnpm build --metafile",

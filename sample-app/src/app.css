@@ -1,0 +1,260 @@
+/* Sample-app chrome only. UIKit styles come from the UIKit source itself. */
+
+:root {
+  --sa-bg: #f5f6f8;
+  --sa-surface: #fff;
+  --sa-text: #1c1e21;
+  --sa-muted: #6b7280;
+  --sa-border: #e1e4e8;
+  --sa-primary: #1054de;
+  --sa-primary-text: #fff;
+  --sa-devbar-bg: rgb(28 30 33 / 92%);
+  --sa-devbar-text: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sa-bg: #111316;
+    --sa-surface: #1c1e21;
+    --sa-text: #f5f6f8;
+    --sa-muted: #9ca3af;
+    --sa-border: #2d3138;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--sa-bg);
+  color: var(--sa-text);
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+/* ── Running app ─────────────────────────────────────────────────────────── */
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__uikit {
+  flex: 1;
+  min-height: 0;
+  /* The UIKit's own layouts size themselves against their container. */
+  position: relative;
+}
+
+.devbar {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2147483000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: var(--sa-devbar-bg);
+  color: var(--sa-devbar-text);
+  font-size: 12px;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 25%);
+  backdrop-filter: blur(6px);
+}
+
+.devbar__label {
+  padding: 0 6px;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+/* ── Setup form ──────────────────────────────────────────────────────────── */
+
+.setup {
+  min-height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.setup__card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--sa-surface);
+  border: 1px solid var(--sa-border);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 6%);
+}
+
+.setup__header h1 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.setup__header p {
+  margin: 0;
+  color: var(--sa-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.setup__group {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setup__group legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sa-muted);
+}
+
+.setup__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.setup__field span {
+  color: var(--sa-muted);
+}
+
+.setup__field input,
+.setup__field select {
+  font: inherit;
+  font-size: 14px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--sa-border);
+  background: var(--sa-bg);
+  color: var(--sa-text);
+}
+
+.setup__field input:focus,
+.setup__field select:focus {
+  outline: 2px solid var(--sa-primary);
+  outline-offset: 1px;
+}
+
+.setup__check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.setup__segmented {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--sa-bg);
+  border: 1px solid var(--sa-border);
+}
+
+.setup__segmented label {
+  flex: 1;
+  text-align: center;
+  padding: 7px 14px;
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--sa-muted);
+}
+
+.setup__segmented label[data-active='true'] {
+  background: var(--sa-surface);
+  color: var(--sa-text);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%);
+}
+
+.setup__segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.setup__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.setup__hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--sa-muted);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: var(--sa-bg);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+
+.btn {
+  font: inherit;
+  font-size: 14px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--sa-border);
+  background: var(--sa-surface);
+  color: var(--sa-text);
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--sa-primary);
+  border-color: var(--sa-primary);
+  color: var(--sa-primary-text);
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+.btn--small {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border-color: rgb(255 255 255 / 25%);
+  background: rgb(255 255 255 / 10%);
+  color: inherit;
+}
